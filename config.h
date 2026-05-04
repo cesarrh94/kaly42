@@ -1,33 +1,26 @@
-/* 
- * Final config.h for Kaly42 - Vial Version
- * Basado en las specs originales del creador y optimizado para Blackpill (STM32F411)
- */
-
 #pragma once
 
-/* --- Identidad Oficial del Teclado --- */
-// Usamos el UID original para asegurar compatibilidad con la interfaz de Vial
+// We use the original UID to ensure compatibility with the Vial interface
 #define VIAL_KEYBOARD_UID {0x15, 0x56, 0x94, 0x28, 0x02, 0xBB, 0x66, 0xBE}
 
-/* --- Seguridad y Desbloqueo --- */
-// Combo original: fila 0,4 y col 0,5. 
-// Esto evita cambios accidentales en la app sin presionar estas teclas físicas.
+/* --- Security and Unlocking --- */
+// Original combo: row 0.4 and column 0.5.
+// This prevents accidental changes in the app without pressing these physical keys.
 #define VIAL_UNLOCK_COMBO_ROWS { 0, 4 }
 #define VIAL_UNLOCK_COMBO_COLS { 0, 5 }
 
-/* --- Optimizaciones para Blackpill (STM32F411) --- */
-// Tienes memoria de sobra (512KB Flash), así que podemos habilitar más capas
-// Por defecto Vial usa 4, pero aquí lo dejamos listo para lo que necesites.
+/* --- Optimizations for Blackpill (STM32F411) --- */
+// You have plenty of memory (512KB Flash), so we can enable more layers
+// By default, Vial uses 4, but we've left it here ready for whatever you need.
 #define DYNAMIC_KEYMAP_LAYER_COUNT 4
 
-/* --- Configuración del Split --- */
-// Al ser un split con Blackpill, estas definiciones aseguran que la 
-// comunicación entre mitades sea estable.
+/* --- Split Configuration --- */
+// Since this is a Blackpill split, these settings ensure stable communication between the halves.
+// If you prefer to connect the USB to the right side, change the above to #define MASTER_RIGHT
 #define SERIAL_USART_FULL_DUPLEX
 #define MASTER_LEFT 
-// Si prefieres conectar el USB al lado derecho, cambia lo anterior por #define MASTER_RIGHT
 
-/* --- Mejoras de Rendimiento --- */
-// Reduce el lag de entrada y mejora la respuesta en juegos (como Valorant/CS)
+/* --- Performance Improvements --- */
+// Reduces input lag and improves responsiveness in games (like Valorant/CS)
 #define USB_POLLING_INTERVAL_MS 1
 #define FORCE_NKRO
