@@ -3,6 +3,10 @@ BOOTLOADER = stm32-dfu
 BOARD = GENERIC_STM32_F411XE
 SERIAL_DRIVER = usart
 
+# Vial & VIA Configuration
+VIA_ENABLE = yes
+VIAL_ENABLE = yes
+
 LTO_ENABLE = yes            # Enable Link Time Optimization
 BOOTMAGIC_ENABLE = yes      # Enable Bootmagic Lite
 MOUSEKEY_ENABLE = yes       # Enable Mouse keys
